@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { calculateTotal,
+import {
          decreaseAmount,
          increaseAmount,
          Remove
@@ -26,7 +26,12 @@ function ProductsList() {
               <div className="title  flex flex-col justify-center items-center gap-3  ">
                 <h2 className="text-lg text-black">{pro.title}</h2>
                 <p className="text-black">{pro.price}$</p>
-                <button className="btn btn-primary">Remove</button>
+                <button
+                  onClick={() => dispatch(Remove(pro.id))}
+                  className="btn btn-primary"
+                >
+                  Remove
+                </button>
               </div>
               <div
                 className="box flex gap-5 items-center
@@ -41,11 +46,10 @@ function ProductsList() {
                 <p className="text-pink-600 text-xl">{pro.amount}</p>
                 <button
                   onClick={() => {
-                    if( pro.amount > 1 ) {
+                    if (pro.amount > 1) {
                       dispatch(decreaseAmount(pro.id));
-                    }
-                    else {
-                        dispatch(Remove(pro.id));
+                    } else {
+                      dispatch(Remove(pro.id));
                     }
                   }}
                   className="btn btn-outline btn-secondary"
