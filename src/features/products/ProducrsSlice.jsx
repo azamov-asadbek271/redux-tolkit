@@ -28,8 +28,12 @@ export  const producrsSlice = createSlice({
 
     },
     Remove: (state, { payload }) => {
+        
+       const item =  state.products.filter((pro) => {
+            return pro.id !== payload
+        })
         producrsSlice.caseReducers.calculateTotal(state);
-
+     state.products = item
     },
     calculateTotal: (state) => {
         let price = 0;
