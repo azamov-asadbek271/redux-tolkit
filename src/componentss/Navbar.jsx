@@ -1,10 +1,11 @@
 import { FaShopify } from "react-icons/fa";
-import { useSelector,  } from "react-redux";
+import { useSelector } from "react-redux";
 
 function Navbar() {
-  const {total} = useSelector((store) => store); 
+  const { total } = useSelector((store) => store);
+  console.log(total);
   return (
-    <div> 
+    <div>
       <div className="navbar bg-base-100 p-4 mb-10">
         <div className="navbar-start">
           <div className="dropdown">

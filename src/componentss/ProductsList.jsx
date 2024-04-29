@@ -1,14 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
-         decreaseAmount,
-         increaseAmount,
-         Remove
- } from "../features/products/ProducrsSlice";
-
+  decreaseAmount,
+  increaseAmount,
+  Remove,
+} from "../features/products/ProducrsSlice";
 
 function ProductsList() {
-    const { products } = useSelector((store) => store);
-    const dispatch = useDispatch()
+  const { products } = useSelector((store) => store);
+  const dispatch = useDispatch();
   return (
     <div>
       <ul className="">
@@ -46,10 +45,10 @@ function ProductsList() {
                 <p className="text-pink-600 text-xl">{pro.amount}</p>
                 <button
                   onClick={() => {
-                    if (pro.amount > 1) {
-                      dispatch(decreaseAmount(pro.id));
-                    } else {
+                    if (pro.amount == 1) {
                       dispatch(Remove(pro.id));
+                    } else {
+                      dispatch(decreaseAmount(pro.id));
                     }
                   }}
                   className="btn btn-outline btn-secondary"
